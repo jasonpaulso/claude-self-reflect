@@ -16,7 +16,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-BACKUP_DIR="$1/claude-self-reflection-backup-$(date +%Y%m%d-%H%M%S)"
+BACKUP_DIR="$1/claude-self-reflect-backup-$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$BACKUP_DIR"
 
 echo -e "${BLUE}📦 Creating backup in: $BACKUP_DIR${NC}"

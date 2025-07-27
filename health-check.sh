@@ -36,7 +36,7 @@ else
 fi
 
 # Check MCP Server
-MCP_PID=$(pgrep -f "node.*claude-self-reflection" || true)
+MCP_PID=$(pgrep -f "node.*claude-self-reflect" || true)
 if [ -n "$MCP_PID" ]; then
     echo -e "${GREEN}✅ MCP Server:${NC} Connected (PID: $MCP_PID)"
 else
@@ -72,8 +72,8 @@ else
 fi
 
 # Check search performance (if test results exist)
-if [ -f claude-self-reflection/test-results.json ]; then
-    AVG_TIME=$(jq -r '.searchPerformance.avgResponseTime' claude-self-reflection/test-results.json 2>/dev/null || echo "unknown")
+if [ -f claude-self-reflect/test-results.json ]; then
+    AVG_TIME=$(jq -r '.searchPerformance.avgResponseTime' claude-self-reflect/test-results.json 2>/dev/null || echo "unknown")
     echo -e "${GREEN}✅ Search Performance:${NC} ${AVG_TIME}ms avg (last test run)"
 else
     echo -e "${BLUE}ℹ️  Search Performance:${NC} No test data available"
@@ -105,5 +105,5 @@ echo ""
 echo -e "${BLUE}💡 Quick Actions:${NC}"
 echo "• Import new conversations: docker compose run --rm importer"
 echo "• View logs: docker compose logs -f"
-echo "• Run tests: cd claude-self-reflection && npm test"
+echo "• Run tests: cd claude-self-reflect && npm test"
 echo "• Check collections: python scripts/check-collections.py"

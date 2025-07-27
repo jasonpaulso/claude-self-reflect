@@ -22,8 +22,8 @@ RUN useradd -m -u 1000 watcher
 
 # Copy scripts
 COPY scripts/import-watcher.py /scripts/
-COPY scripts/import-conversations-voyage.py /scripts/
-COPY scripts/import-conversations-voyage-streaming.py /scripts/
+# COPY scripts/import-conversations-voyage.py /scripts/
+# COPY scripts/import-conversations-voyage-streaming.py /scripts/
 COPY scripts/import-conversations-unified.py /scripts/
 RUN chmod +x /scripts/*.py
 

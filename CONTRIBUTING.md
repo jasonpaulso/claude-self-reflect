@@ -24,12 +24,12 @@ This project follows the [Contributor Covenant Code of Conduct](https://www.cont
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/yourusername/claude-self-reflection.git
-   cd claude-self-reflection/qdrant-mcp-stack
+   git clone https://github.com/yourusername/claude-self-reflect.git
+   cd claude-self-reflect/qdrant-mcp-stack
    ```
 3. **Add upstream remote**:
    ```bash
-   git remote add upstream https://github.com/originalowner/claude-self-reflection.git
+   git remote add upstream https://github.com/originalowner/claude-self-reflect.git
    ```
 
 ## Development Setup
@@ -44,12 +44,13 @@ This project follows the [Contributor Covenant Code of Conduct](https://www.cont
 ### Local Development
 
 1. **Install dependencies**:
+
    ```bash
    # Node.js dependencies
-   cd claude-self-reflection
+   cd claude-self-reflect
    npm install
    cd ..
-   
+
    # Python dependencies
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
@@ -57,21 +58,23 @@ This project follows the [Contributor Covenant Code of Conduct](https://www.cont
    ```
 
 2. **Start services**:
+
    ```bash
    docker compose up -d qdrant
    ```
 
 3. **Run in development mode**:
    ```bash
-   cd claude-self-reflection
+   cd claude-self-reflect
    npm run dev
    ```
 
 ### Testing with Claude Desktop
 
 1. Build the MCP server:
+
    ```bash
-   cd claude-self-reflection
+   cd claude-self-reflect
    npm run build
    ```
 
@@ -79,9 +82,9 @@ This project follows the [Contributor Covenant Code of Conduct](https://www.cont
    ```json
    {
      "mcpServers": {
-       "claude-self-reflection-dev": {
+       "claude-self-reflect-dev": {
          "command": "node",
-         "args": ["/path/to/your/fork/claude-self-reflection/dist/index.js"]
+         "args": ["/path/to/your/fork/claude-self-reflect/dist/index.js"]
        }
      }
    }
@@ -143,12 +146,13 @@ This project follows the [Contributor Covenant Code of Conduct](https://www.cont
 - Prefer `const` over `let`, avoid `var`
 
 Example:
+
 ```typescript
 export async function searchConversations(
   query: string,
   options: SearchOptions = {}
 ): Promise<SearchResult[]> {
-  const { limit = 10, threshold = 0.7 } = options
+  const { limit = 10, threshold = 0.7 } = options;
   // Implementation
 }
 ```
@@ -161,17 +165,18 @@ export async function searchConversations(
 - Use f-strings for formatting
 
 Example:
+
 ```python
 def process_conversation(
     content: str,
     metadata: Dict[str, Any]
 ) -> List[ConversationChunk]:
     """Process a conversation into searchable chunks.
-    
+
     Args:
         content: Raw conversation text
         metadata: Conversation metadata
-        
+
     Returns:
         List of processed chunks
     """
@@ -217,24 +222,26 @@ python -m pytest scripts/tests/
 4. **Test edge cases and error conditions**
 
 Example test:
+
 ```typescript
-describe('searchConversations', () => {
-  it('should return relevant results for semantic queries', async () => {
-    const results = await searchConversations('React hooks')
-    expect(results).toHaveLength(greaterThan(0))
-    expect(results[0].score).toBeGreaterThan(0.7)
-  })
-  
-  it('should handle empty queries gracefully', async () => {
-    const results = await searchConversations('')
-    expect(results).toHaveLength(0)
-  })
-})
+describe("searchConversations", () => {
+  it("should return relevant results for semantic queries", async () => {
+    const results = await searchConversations("React hooks");
+    expect(results).toHaveLength(greaterThan(0));
+    expect(results[0].score).toBeGreaterThan(0.7);
+  });
+
+  it("should handle empty queries gracefully", async () => {
+    const results = await searchConversations("");
+    expect(results).toHaveLength(0);
+  });
+});
 ```
 
 ### Performance Testing
 
 For performance-sensitive changes:
+
 1. Run benchmarks before and after
 2. Document performance impact in PR
 3. Consider memory usage, not just speed
@@ -244,17 +251,20 @@ For performance-sensitive changes:
 ### Pull Request Process
 
 1. **Update your fork**:
+
    ```bash
    git fetch upstream
    git rebase upstream/main
    ```
 
 2. **Push your changes**:
+
    ```bash
    git push origin feature/your-feature-name
    ```
 
 3. **Create a Pull Request** with:
+
    - Clear title following conventional commits
    - Description of changes and motivation
    - Reference to related issues
@@ -278,13 +288,14 @@ For performance-sensitive changes:
 
 ### Getting Help
 
-- 💬 [GitHub Discussions](https://github.com/yourusername/claude-self-reflection/discussions) - Ask questions, share ideas
-- 🐛 [Issue Tracker](https://github.com/yourusername/claude-self-reflection/issues) - Report bugs, request features
-- 🏃‍♂️ [Discord](https://discord.gg/claude-self-reflection) - Real-time chat with community
+- 💬 [GitHub Discussions](https://github.com/yourusername/claude-self-reflect/discussions) - Ask questions, share ideas
+- 🐛 [Issue Tracker](https://github.com/yourusername/claude-self-reflect/issues) - Report bugs, request features
+- 🏃‍♂️ [Discord](https://discord.gg/claude-self-reflect) - Real-time chat with community
 
 ### Recognition
 
 Contributors are recognized in:
+
 - README.md contributors section
 - CHANGELOG.md entries
 - GitHub's contributor graph
@@ -292,6 +303,7 @@ Contributors are recognized in:
 ### Becoming a Maintainer
 
 Active contributors may be invited to become maintainers. Maintainers can:
+
 - Merge pull requests
 - Manage issues and discussions
 - Guide project direction

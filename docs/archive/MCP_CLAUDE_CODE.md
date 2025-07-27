@@ -1,16 +1,18 @@
 # MCP Management in Claude Code
 
 ## Overview
+
 When using Claude Code (not Claude Desktop), MCP servers are managed through CLI commands rather than GUI settings.
 
 ## Key Commands
 
 ### MCP Server Management
+
 ```bash
 # List all configured MCP servers
 claude mcp list
 
-# Add the claude-self-reflection MCP
+# Add the claude-self-reflect MCP
 claude mcp add claude-self-reflect
 
 # Remove an MCP (useful when needing to restart)
@@ -24,6 +26,7 @@ claude mcp restart claude-self-reflect
 ```
 
 ### Troubleshooting
+
 ```bash
 # View MCP logs
 claude mcp logs claude-self-reflect
@@ -38,11 +41,13 @@ claude mcp test claude-self-reflect
 ### Common Issues
 
 1. **MCP Failed to Start**
+
    - Check environment variables are properly set
    - Verify Qdrant is running: `docker ps | grep qdrant`
    - Check VOYAGE_KEY is configured
 
 2. **MCP Not Finding Collections**
+
    - Restart the MCP: `claude mcp restart claude-self-reflect`
    - Collections are cached at startup
 
@@ -53,6 +58,7 @@ claude mcp test claude-self-reflect
 ## Environment Configuration
 
 The MCP uses these environment variables:
+
 - `QDRANT_URL`: Qdrant server URL (default: http://localhost:6333)
 - `VOYAGE_KEY`: API key for Voyage AI embeddings
 - `ENABLE_MEMORY_DECAY`: Enable time-based decay (true/false)
@@ -62,6 +68,7 @@ The MCP uses these environment variables:
 ## Using MCP Tools
 
 Once connected, use the tools:
+
 ```
 # Search past conversations
 mcp__claude-reflect__reflect_on_past
@@ -71,6 +78,7 @@ mcp__claude-reflect__store_reflection
 ```
 
 ## Important Notes
+
 - Do NOT use Claude Desktop settings when using Claude Code
 - MCP servers are stdio-based and won't produce console output
 - Always restart MCP after adding new collections to Qdrant

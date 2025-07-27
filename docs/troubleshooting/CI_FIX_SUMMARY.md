@@ -3,16 +3,18 @@
 ## What Happened
 
 1. **GitHub Release**: ✅ Successfully created v2.0.0 release
+
    - URL: https://github.com/ramakay/claude-self-reflect/releases/tag/v2.0.0
    - Release notes and migration guide are published
 
 2. **CI/CD Pipeline**: ❌ Failed after release
-   - Reason: CI workflow was looking for the archived `claude-self-reflection` directory
+   - Reason: CI workflow was looking for the archived `claude-self-reflect` directory
    - The TypeScript tests and build steps no longer exist in our restructured project
 
 ## What Was Fixed
 
 1. **Updated `.github/workflows/ci.yml`**:
+
    - Replaced TypeScript tests with Python tests
    - Updated npm package tests for new structure
    - Added Python version matrix (3.10, 3.11, 3.12)
@@ -23,6 +25,7 @@
 ## Next Steps
 
 ### Option 1: Create a New Release (Recommended)
+
 Since v2.0.0 release already exists but has CI failures, create v2.0.1:
 
 ```bash
@@ -37,6 +40,7 @@ gh release create v2.0.1 \
 ```
 
 ### Option 2: Merge to Main First
+
 If you want to ensure CI passes before release:
 
 ```bash

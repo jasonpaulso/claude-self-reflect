@@ -17,9 +17,9 @@ find scripts -name "*.py" -o -name "*.sh" -o -name "*.js" | while read file; do
     sed -i '' 's|/claude-self-reflect/|/claude-self-reflect/|g' "$file" 2>/dev/null
 done
 
-# Update claude-self-reflection directory files
-if [ -d "claude-self-reflection" ]; then
-    find claude-self-reflection -name "*.json" -o -name "*.js" -o -name "*.ts" -o -name "*.sh" | while read file; do
+# Update claude-self-reflect directory files
+if [ -d "claude-self-reflect" ]; then
+    find claude-self-reflect -name "*.json" -o -name "*.js" -o -name "*.ts" -o -name "*.sh" | while read file; do
         sed -i '' 's|/claude-self-reflect/|/claude-self-reflect/|g' "$file" 2>/dev/null
     done
 fi

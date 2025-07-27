@@ -1,8 +1,8 @@
 version: 2
 updates:
-  # NPM dependencies for claude-self-reflection
+  # NPM dependencies for claude-self-reflect
   - package-ecosystem: "npm"
-    directory: "/claude-self-reflection"
+    directory: "/claude-self-reflect"
     schedule:
       interval: "weekly"
       day: "monday"

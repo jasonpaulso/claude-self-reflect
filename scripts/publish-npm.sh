@@ -13,7 +13,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # Change to package directory
-cd "$(dirname "$0")/../claude-self-reflection"
+cd "$(dirname "$0")/../claude-self-reflect"
 
 # Check if logged in to NPM
 echo -e "\n${YELLOW}Checking NPM login status...${NC}"

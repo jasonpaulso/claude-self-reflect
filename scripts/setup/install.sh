@@ -112,7 +112,7 @@ fi
 
 # Install MCP server dependencies
 print_info "Installing MCP server dependencies..."
-cd claude-self-reflection
+cd claude-self-reflect
 npm install --production
 npm run build
 cd ..
@@ -163,7 +163,7 @@ if [ ! -d "$CLAUDE_CONFIG_DIR" ]; then
 fi
 
 if [ -d "$CLAUDE_CONFIG_DIR" ]; then
-    cp claude-self-reflection/config/claude-desktop-config.json "$CLAUDE_CONFIG_DIR/claude_desktop_config.json" 2>/dev/null || true
+    cp claude-self-reflect/config/claude-desktop-config.json "$CLAUDE_CONFIG_DIR/claude_desktop_config.json" 2>/dev/null || true
     print_success "Claude Desktop configuration added"
     print_warning "Please restart Claude Desktop to load the MCP server"
 else
@@ -174,7 +174,7 @@ echo ""
 
 # Test the installation
 print_info "Running installation tests..."
-cd claude-self-reflection
+cd claude-self-reflect
 if npm test -- --grep "connection" > /dev/null 2>&1; then
     print_success "MCP server test passed"
 else
@@ -220,8 +220,8 @@ echo "• Import convos:    python scripts/import-openai-enhanced.py"
 echo "• Stop services:    docker compose down"
 echo "• Update:          git pull && ./install.sh"
 echo ""
-echo "📚 Documentation: https://github.com/yourusername/claude-self-reflection"
-echo "💬 Support:       https://github.com/yourusername/claude-self-reflection/issues"
+echo "📚 Documentation: https://github.com/yourusername/claude-self-reflect"
+echo "💬 Support:       https://github.com/yourusername/claude-self-reflect/issues"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # Handle special flags
@@ -232,5 +232,5 @@ fi
 
 if [ "$1" == "--test" ]; then
     print_info "Running full test suite..."
-    cd claude-self-reflection && npm test && cd ..
+    cd claude-self-reflect && npm test && cd ..
 fi
